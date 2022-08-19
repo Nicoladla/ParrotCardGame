@@ -35,3 +35,26 @@ li{
     height: 146px;
 }
 /*Fim da estilização das cartas*/
+/*Inicio da estilização das cartas no mobile*/
+@media(max-width: 320px){
+    h1{
+        font-size: 36px;
+    }
+    body{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    ul{
+        padding: 0;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    li{
+        margin-right: 0;
+    }
+}
+/*Fim da estilização das cartas no mobile*/
+/*Inicio da estilização do efeito da carta*/
+
+/*Fim da estilização do efeito da carta*/
