@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #eef9bf;
+    padding: 40px;
+}
+
+h1{
+    color: #75B79E;
+    font-family: arial;
+    font-weight: bold;
+    font-size: 56px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+/*Inicio da estilização das cartas*/
+ul{
+    padding: 0 0 0 34px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+li{
+    background: #A7E9AF;
+    background-image: url(img/front.png);
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    background-position: center;
+    margin-top: 34px;
+    margin-right: 34px;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    width: 117px;
+    height: 146px;
+}
+/*Fim da estilização das cartas*/
