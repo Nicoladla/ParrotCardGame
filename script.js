@@ -39,10 +39,55 @@ for(let i=0; i<numeroDeCartas; i++){
     listaDeCartas.innerHTML+= `<li class="${usandoCartaVirada[i]} carta" onclick="VirarCarta(this)"></li>`
 }
 
+//Esconde a carta quando selecionado 2 cartas diferentes.
+function esconderCarta(){
 
+    //Pega as duas cartas que estão com a mesma classe.
+    const cartasDeMesmaClasse1= document.querySelectorAll(`.${carta1}`);
+    const cartasDeMesmaClasse2= document.querySelectorAll(`.${carta2}`);
 
+    //Verifica qual das cartas esta virada e esconde ela.
+    for(let i=0; i<2; i++){
+        let verificarCarta1= cartasDeMesmaClasse1[i].classList.contains('carta');
+        let verificarCarta2= cartasDeMesmaClasse2[i].classList.contains('carta');
+
+        if(!verificarCarta1){
+            cartasDeMesmaClasse1[i].classList.add('carta');
+        }
+        if(!verificarCarta2){
+            cartasDeMesmaClasse2[i].classList.add('carta');
+        }
+    }
+    carta1= "";
+    carta2= "";
+}
 
 //Vira a carta ao clicar.
+let numeroDeJogadas= 0;
+let carta1="";
+let carta2="";
 function VirarCarta(cartaClicada){
-    cartaClicada.classList.toggle('carta');
+
+    //Verifica se é a primeira ou a segunda carta clicada.
+    if(cartaClicada.classList.contains('carta') && carta1 == ""){
+        cartaClicada.classList.remove('carta');
+
+        carta1= cartaClicada.classList.value;
+        numeroDeJogadas++
+
+    }else if(cartaClicada.classList.contains('carta') && carta2 == ""){
+        cartaClicada.classList.remove('carta');
+
+        carta2= cartaClicada.classList.value;
+        numeroDeJogadas++
+    }
+
+    //Verifica se as cartas são iguais ou diferentes.
+    if(carta1 && carta2 !== "" && carta1 === carta2){
+        carta1= "";
+        carta2= "";
+
+    }else if(carta1 && carta2 !== "" && carta1 !== carta2){
+        setTimeout(esconderCarta, 1000);
+    }
 }
