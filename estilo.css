@@ -23,7 +23,6 @@ ul{
 }
 li{
     background: #A7E9AF;
-    background-image: url(img/front.png);
     background-repeat: no-repeat;
     background-size: 100px 100px;
     background-position: center;
@@ -33,6 +32,8 @@ li{
     border-radius: 5px;
     width: 117px;
     height: 146px;
+
+    transition: all 400ms linear;
 }
 /*Fim da estilização das cartas*/
 /*Inicio da estilização das cartas no mobile*/
@@ -56,5 +57,29 @@ li{
 }
 /*Fim da estilização das cartas no mobile*/
 /*Inicio da estilização do efeito da carta*/
-
+.bobross{
+    background-image: url(img/bobrossparrot.gif);
+}
+.explody{
+    background-image: url(img/explodyparrot.gif);
+}
+.fiesta{
+    background-image: url(img/fiestaparrot.gif);
+}
+.metal{
+    background-image: url(img/metalparrot.gif);
+}
+.revertit{
+    background-image: url(img/revertitparrot.gif);
+}
+.triplets{
+    background-image: url(img/tripletsparrot.gif);
+}
+.unicorn{
+    background-image: url(img/unicornparrot.gif);
+}
+.carta{
+    background-image: url(img/front.png);
+    transform: rotatey(180deg);
+}
 /*Fim da estilização do efeito da carta*/
