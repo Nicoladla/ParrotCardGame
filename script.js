@@ -90,4 +90,15 @@ function VirarCarta(cartaClicada){
     }else if(carta1 && carta2 !== "" && carta1 !== carta2){
         setTimeout(esconderCarta, 1000);
     }
+    
+    jogoFinalizado()
+}
+
+//Verifica se ainda existe cartas escondidas, se não existir, o jogo é finalizado.
+function jogoFinalizado(){
+    const temCartaEscondida= document.querySelector(".carta");
+
+    if(temCartaEscondida === null){
+        alert(`Você ganhou em ${numeroDeJogadas} jogadas!`)
+    }
 }
