@@ -21,6 +21,14 @@ while(numeroDeCartas<4 || numeroDeCartas>14 || numeroDeCartas%2 !==0){
     numeroDeCartas = perguntarNovamente;
 }
 
+//Iniciando o contador.
+const contador= document.querySelector('.contador');
+
+function contar(){
+    contador.innerHTML++;
+}
+const contando= setInterval(contar, 1000);
+
 //Distribui as cartas.
     //Vai armazenar e embaralhar a lista de carta virada de acordo com o numero de carta.
 let usandoCartaVirada= [];
@@ -90,15 +98,20 @@ function VirarCarta(cartaClicada){
     }else if(carta1 && carta2 !== "" && carta1 !== carta2){
         setTimeout(esconderCarta, 1000);
     }
-    
+
     jogoFinalizado()
 }
 
 //Verifica se ainda existe cartas escondidas, se não existir, o jogo é finalizado.
 function jogoFinalizado(){
+
     const temCartaEscondida= document.querySelector(".carta");
 
     if(temCartaEscondida === null){
-        alert(`Você ganhou em ${numeroDeJogadas} jogadas!`)
+        clearInterval(contando);
+
+        alert(`Você ganhou em ${numeroDeJogadas} jogadas e em ${contador.innerHTML} segundos!`)
     }
 }
+
+//Problema! contador esta concatenando.

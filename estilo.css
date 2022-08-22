@@ -3,12 +3,12 @@
 }
 body{
     background-color: #eef9bf;
+    font-family: arial;
     padding: 40px;
 }
 
 h1{
     color: #75B79E;
-    font-family: arial;
     font-weight: bold;
     font-size: 56px;
     text-align: center;
@@ -36,26 +36,6 @@ li{
     transition: all 400ms linear;
 }
 /*Fim da estilização das cartas*/
-/*Inicio da estilização das cartas no mobile*/
-@media(max-width: 320px){
-    h1{
-        font-size: 36px;
-    }
-    body{
-        padding-left: 0;
-        padding-right: 0;
-    }
-    ul{
-        padding: 0;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-items: center;
-    }
-    li{
-        margin-right: 0;
-    }
-}
-/*Fim da estilização das cartas no mobile*/
 /*Inicio da estilização do efeito da carta*/
 .bobross{
     background-image: url(img/bobrossparrot.gif);
@@ -83,3 +63,49 @@ li{
     transform: rotatey(180deg);
 }
 /*Fim da estilização do efeito da carta*/
+/*Inicio estilização do contador*/
+.posiçao-do-contador{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.contador{
+    background-color: black;
+    color: white;
+    font-size: 50px;
+    width: 80px;
+    height: 60px;
+    border-radius: 5px;
+    border: 2px solid rgb(115, 164, 141);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*Fim estilização do contador*/
+/*Inicio da estilização no mobile*/
+@media(max-width: 320px){
+    h1{
+        font-size: 36px;
+    }
+    body{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    ul{
+        padding: 0;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    li{
+        margin-right: 0;
+    }
+
+    .contador{
+        font-size: 30px;
+        width: 60px;
+        height: 40px;
+        margin-right: 20px;
+    }
+}
+/*Fim da estilização no mobile*/
