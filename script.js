@@ -13,39 +13,46 @@ const listaDeCartasVirada= [
 ];
 embaralharArray(listaDeCartasVirada);
 
-//Pergunta a quantidade de cartas e verifica se é válido.
-let numeroDeCartas= Number(prompt(`Com quantas cartas você deseja jogar?`));
-
-while(numeroDeCartas<4 || numeroDeCartas>14 || numeroDeCartas%2 !==0){
-    let perguntarNovamente= Number(prompt(`Número inválido. Escolha um número "par" entre 4 e 14. `));
-    numeroDeCartas = perguntarNovamente;
-}
-
-//Iniciando o contador.
+//Inicia o jogo.
 const contador= document.querySelector('.contador');
+let contando;
+function iniciarJogo(){
+    //Pergunta a quantidade de cartas e verifica se é válido.
+    let numeroDeCartas= Number(prompt(`Com quantas cartas você deseja jogar?`));
 
-function contar(){
-    contador.innerHTML++;
+    while(numeroDeCartas<4 || numeroDeCartas>14 || numeroDeCartas%2 !==0){
+        let perguntarNovamente= Number(prompt(`Número inválido. Escolha um número "par" entre 4 e 14. `));
+        numeroDeCartas = perguntarNovamente;
+    }
+
+    //Iniciando o contador.
+    contador.innerHTML= 0;
+
+    function contar(){
+        contador.innerHTML++;
+    }
+    contando= setInterval(contar, 1000);
+
+    //Distribui as cartas.
+        //Vai armazenar e embaralhar a lista de carta virada de acordo com o numero de carta.
+    let usandoCartaVirada= [];
+
+    for(let i=0; i<numeroDeCartas/2; i++){
+        usandoCartaVirada.push(listaDeCartasVirada[i]);
+    }
+
+    usandoCartaVirada= usandoCartaVirada.concat(usandoCartaVirada);
+    embaralharArray(usandoCartaVirada);
+
+        //Vai distribuir as cartas de forma aleatória.
+    const listaDeCartas= document.querySelector('ul');
+    listaDeCartas.innerHTML="";
+
+    for(let i=0; i<numeroDeCartas; i++){
+        listaDeCartas.innerHTML+= `<li class="${usandoCartaVirada[i]} carta" onclick="VirarCarta(this)"></li>`
+    }
 }
-const contando= setInterval(contar, 1000);
-
-//Distribui as cartas.
-    //Vai armazenar e embaralhar a lista de carta virada de acordo com o numero de carta.
-let usandoCartaVirada= [];
-
-for(let i=0; i<numeroDeCartas/2; i++){
-    usandoCartaVirada.push(listaDeCartasVirada[i]);
-}
-
-usandoCartaVirada= usandoCartaVirada.concat(usandoCartaVirada);
-embaralharArray(usandoCartaVirada);
-
-    //Vai distribuir as cartas de forma aleatória.
-const listaDeCartas= document.querySelector('ul');
-
-for(let i=0; i<numeroDeCartas; i++){
-    listaDeCartas.innerHTML+= `<li class="${usandoCartaVirada[i]} carta" onclick="VirarCarta(this)"></li>`
-}
+iniciarJogo()
 
 //Esconde a carta quando selecionado 2 cartas diferentes.
 function esconderCarta(){
@@ -110,8 +117,14 @@ function jogoFinalizado(){
     if(temCartaEscondida === null){
         clearInterval(contando);
 
-        alert(`Você ganhou em ${numeroDeJogadas} jogadas e em ${contador.innerHTML} segundos!`)
+        function resultadoDoJogo(){
+            alert(`Você ganhou em ${numeroDeJogadas} jogadas e em ${contador.innerHTML} segundos!`);
+
+            const querJogarNovamente= prompt('Deseja jogar novamente?');
+            if(querJogarNovamente === "sim"){
+                setTimeout(iniciarJogo, 1000);
+            }
+        }
+        setTimeout(resultadoDoJogo, 1000);
     }
 }
-
-//Problema! contador esta concatenando.
