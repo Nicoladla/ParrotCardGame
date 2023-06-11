@@ -1,4 +1,4 @@
-# ParrotsCardGame
+# ParrotCardGame
 
 Esse é um jogo clássico jogado por muitas pessoas durante a infância e até mesmo depois da vida adulta.
 
