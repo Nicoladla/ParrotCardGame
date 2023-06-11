@@ -2,7 +2,7 @@
 
 Esse é um jogo clássico jogado por muitas pessoas durante a infância e até mesmo depois da vida adulta.
 
-Essa aplicação é um jogo da memória que traz todas as funcionalidades básicas do jogo e mais:
+Essa aplicação é um jogo da memória que, por ter uma interface responsiva, pode ser jogado tanto no seu PC quanto em seu celular, ele também traz todas as funcionalidades básicas do jogo e mais:
 * Você pode escolher com quantas cartas quer jogar;
 * Seu objetivo é escolher 2 cartas que sejam iguais: caso você selecione cartas diferentes, elas serão viradas/escondidas novamente, caso as cartas sejam iguais elas ficaram a vista;
 * Enquanto você estiver jogando você verá um cronômetro com o seu tempo;
