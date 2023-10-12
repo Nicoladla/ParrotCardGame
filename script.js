@@ -120,8 +120,8 @@ function jogoFinalizado(){
         function resultadoDoJogo(){
             alert(`Você ganhou em ${numeroDeJogadas} jogadas e em ${contador.innerHTML} segundos!`);
 
-            const querJogarNovamente= prompt('Deseja jogar novamente?');
-            if(querJogarNovamente === "sim"){
+            const querJogarNovamente= confirm('Deseja jogar novamente?');
+            if(querJogarNovamente){
                 setTimeout(iniciarJogo, 1000);
             }
         }
